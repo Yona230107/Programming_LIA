@@ -52,4 +52,17 @@ plt.pie(values,labels=labels, autopct='%1.1f%%',colors=['green','red'])
 plt.title("The hours slept by students")
 plt.show()
 
+#plot number 3: histogram
+plt.hist(exam_scores)
+plt.xlabel("Amount of students")
+plt.ylabel("Exam scores of students")
+plt.title("Exam scores of students")
+plt.show()
 
+#plot number 4: bar graph
+
+plt.bar(hours_studied, exam_scores, color='green')
+plt.xlabel("Hours studied")
+plt.ylabel("Exam scores")
+plt.title("Exam Scores vs Hours Studied")
+plt.show()
