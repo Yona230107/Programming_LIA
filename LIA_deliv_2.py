@@ -86,3 +86,51 @@ plt.xlabel('Hours Studied')
 plt.ylabel('Exam Score(%) and Sleep Hours')
 plt.legend()
 plt.show()
+
+# plot 7 
+import csv
+import matplotlib.pyplot as plt
+
+# --- Step 1: Load data from CSV ---
+exam_scores = []
+attendance_percent = []
+
+with open('student_exam_scores.csv', newline='') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        exam_scores.append(float(row['exam_score']))
+        attendance_percent.append(float(row['attendance_percent']))
+
+# --- Step 2: Define bins (labels) and count how many students fall in each ---
+attendance_labels = ['90–100%', '80–89%', '70–79%', '60–69%', '<60%']
+attendance_counts = [0, 0, 0, 0, 0]
+
+for percent in attendance_percent:
+    if percent >= 90:
+        attendance_counts[0] += 1
+    elif percent >= 80:
+        attendance_counts[1] += 1
+    elif percent >= 70:
+        attendance_counts[2] += 1
+    elif percent >= 60:
+        attendance_counts[3] += 1
+    else:
+        attendance_counts[4] += 1
+
+# --- Step 3: Subplots (e) ---
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+
+# Left: Histogram of exam scores
+ax1.hist(exam_scores, bins=10, color='skyblue', edgecolor='black')
+ax1.set_title('Exam Score Distribution')
+ax1.set_xlabel('Exam Score (%)')
+ax1.set_ylabel('Frequency')
+
+# Right: Bar chart of attendance ranges
+ax2.bar(attendance_labels, attendance_counts, color='orange', edgecolor='black')
+ax2.set_title('Attendance Percentage Ranges')
+ax2.set_xlabel('Attendance Range')
+ax2.set_ylabel('Number of Students')
+
+plt.tight_layout()
+plt.show()
