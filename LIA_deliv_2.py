@@ -70,7 +70,6 @@ plt.show()
 # plot 5 (Scatter Plot)attendance_percent Vs.Exam Scores
 
 import mathplotlib.pylot as plt
-
 plt.scatter(attendance_percent, exam_scores)
 plt.xlabel("attendance_percent")
 plt.ylabel("Exam Score")
