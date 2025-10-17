@@ -76,3 +76,13 @@ plt.ylabel("Exam Score")
 plt.title("Exam Score vs. Attendance Percent")
 plt.grid(True)
 plt.show()
+
+# plot 6 (Multi-array line plot) Exam Score and Sleep Hours vs Hours Studied
+import matplotlib.pyplot as plt
+plt.plot(hours_studied, exam_scores, color='blue', linestyle='-', label='Exam Score')
+plt.plot(hours_studied, sleep_hours, color='red', linestyle='--', label='Sleep Hours')
+plt.title('Hours Studied vs Exam Score & Sleep Hours')
+plt.xlabel('Hours Studied')
+plt.ylabel('Exam Score(%) and Sleep Hours')
+plt.legend()
+plt.show()
