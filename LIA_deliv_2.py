@@ -74,8 +74,11 @@ plt.ylabel("Exam scores")
 plt.title("Exam Scores vs Hours Studied")
 plt.show()
 
+
 # plot_5 (Scatter Plot)
 #This codes creates a plot showing the corelation the attendance_percent and the exam_scores 
+
+
 
 plt.scatter(attendance_percent, exam_scores)
 plt.grid(True)
@@ -83,6 +86,7 @@ plt.xlabel("attendance_percent")
 plt.ylabel("Exam Score")
 plt.title("Exam Score vs. Attendance Percent")
 plt.show()
+
 
 # plot_6 
 # This code plots a multi-array line plot and shows the correlation between the sleep hours and exam scores vs the hours studied.
@@ -140,6 +144,7 @@ ax2.set_ylabel('Number of Students')
 
 plt.tight_layout()
 plt.show()
+
 
 
 
