@@ -8,6 +8,7 @@
 # Audrey Birmbaum - 6299087
 # Yona Lasry - 6307274
 import numpy as np
+import matplotlib.pyplot as plt
 #question#2
 hours_studied, sleep_hours, attendance_percent, previous_scores, exam_scores = np.loadtxt(
     "student_exam_scores.csv", 
@@ -17,24 +18,27 @@ hours_studied, sleep_hours, attendance_percent, previous_scores, exam_scores = n
     unpack=True
 )
 #question#3
+#This code calculates the average score of the dataset by taking the total of the scores through the loop and by dividing it by the length.
 total = 0
 for score in exam_scores:
     total += score
     
 avg_score = total/len(exam_scores)
 print(avg_score)
-# This code calculates the average score of the dataset.     
     
-#question#4
-#plot 1
-import matplotlib.pyplot as plt
+    
+#Question#4
+#plot_1
+#This code creates a scatter plot that shows the correlation between the exam scores and hours studied.
+#display
+
 plt.scatter(hours_studied, exam_scores)
 plt.xlabel("Hours Studied")
 plt.ylabel("Exam Score")
 plt.title("Exam Score vs. Study Hours")
 plt.show()
-# plot #2(pie chart)
-
+# plot_2( pie chart)
+#This codes creates a pie chart that shows the percentages of students that have more or less than 6 hours of sleep, those who sleep enough and those who don't
 minimum_hours_of_sleep=6
 sleep_enough=0
 sleep_not_enough=0
@@ -43,8 +47,8 @@ for sleep_hour in sleep_hours:
       sleep_enough+=1
     else:
       sleep_not_enough +=1
-#plot pie chart
-import matplotlib.pyplot as plt
+#display 
+
 labels=["sleep enough(more than 6 hours)"," sleep not enough(less than 6 hours)"]
 values=[sleep_enough, sleep_not_enough]
 
@@ -52,14 +56,17 @@ plt.pie(values,labels=labels, autopct='%1.1f%%',colors=['green','red'])
 plt.title("The hours slept by students")
 plt.show()
 
-#plot number 3: histogram
+#plot_3
+#This code plots a histogram that shows the the amount of students with specific scores
+#display
 plt.hist(exam_scores)
 plt.xlabel("Amount of students")
 plt.ylabel("Exam scores of students")
 plt.title("Exam scores of students")
 plt.show()
 
-#plot number 4: bar graph
+#plot_4
+#This codes creates a bar graph that shows the correlation between hours studied. The same arrays were used previously to plot a scatter graph, clearly the scatter plot is a better option.
 
 plt.bar(hours_studied, exam_scores, color='green')
 plt.xlabel("Hours studied")
@@ -67,18 +74,18 @@ plt.ylabel("Exam scores")
 plt.title("Exam Scores vs Hours Studied")
 plt.show()
 
-# plot 5 (Scatter Plot)attendance_percent Vs.Exam Scores
+# plot_5 (Scatter Plot)
+#This codes creates a plot showing the corelation the attendance_percent and the exam_scores 
 
-import matplotlib.pyplot as plt
 plt.scatter(attendance_percent, exam_scores)
+plt.grid(True)
 plt.xlabel("attendance_percent")
 plt.ylabel("Exam Score")
 plt.title("Exam Score vs. Attendance Percent")
-plt.grid(True)
 plt.show()
 
-# plot 6 (Multi-array line plot) Exam Score and Sleep Hours vs Hours Studied
-import matplotlib.pyplot as plt
+# plot_6 
+# This code plots a multi-array line plot and shows the correlation between the sleep hours and exam scores vs the hours studied.
 plt.plot(hours_studied, exam_scores, color='blue', linestyle='-', label='Exam Score')
 plt.plot(hours_studied, sleep_hours, color='red', linestyle='--', label='Sleep Hours')
 plt.title('Hours Studied vs Exam Score & Sleep Hours')
@@ -87,10 +94,9 @@ plt.ylabel('Exam Score(%) and Sleep Hours')
 plt.legend()
 plt.show()
 
-# plot 7 
+# plot_7 
+# This code creates 2 subplots plots side by side. It shows how exam scores are distributed and how students attendance level compare. 
 import csv
-import matplotlib.pyplot as plt
-
 #   Load data from CSV
 exam_scores = []
 attendance_percent = []
@@ -134,3 +140,6 @@ ax2.set_ylabel('Number of Students')
 
 plt.tight_layout()
 plt.show()
+
+
+
