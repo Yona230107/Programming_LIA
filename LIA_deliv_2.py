@@ -91,7 +91,7 @@ plt.show()
 import csv
 import matplotlib.pyplot as plt
 
-# --- Step 1: Load data from CSV ---
+#   Load data from CSV
 exam_scores = []
 attendance_percent = []
 
@@ -101,7 +101,7 @@ with open('student_exam_scores.csv', newline='') as f:
         exam_scores.append(float(row['exam_score']))
         attendance_percent.append(float(row['attendance_percent']))
 
-# --- Step 2: Define bins (labels) and count how many students fall in each ---
+#  Step 2: Define bins (labels) and count how many students fall in each 
 attendance_labels = ['90–100%', '80–89%', '70–79%', '60–69%', '<60%']
 attendance_counts = [0, 0, 0, 0, 0]
 
@@ -117,7 +117,7 @@ for percent in attendance_percent:
     else:
         attendance_counts[4] += 1
 
-# --- Step 3: Subplots (e) ---
+#  Step 3: Subplots (e) 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
 
 # Left: Histogram of exam scores
